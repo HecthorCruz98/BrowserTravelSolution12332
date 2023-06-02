@@ -1,0 +1,49 @@
+﻿@model List<Libro>
+@{
+    ViewData["Title"] = "Libro";
+}
+<div class="card">
+    <div class="card-header">
+        Lista de Libros
+    </div>
+    <div class="card-body">
+
+        <a asp-action="LibroAdd" asp-controller="Home" class="btn btn-success btn-sm">Nuevo Libro</a>
+        <hr />
+        <table class="table">
+            <thead>
+                <tr>
+                    <th>Id</th>
+                    <th>Editorial</th>
+                    <th>Titulo</th>
+                    <th>Sipnosis</th>
+                    <th>Paginas</th>
+
+                </tr>
+            </thead>
+            <tbody>
+                @foreach (var item in Model)
+                {
+                    <tr>
+                        <td>@item.Id</td>
+                        <td>@item.editorialId</td>
+                        <td>@item.titulo</td>
+                        <td>@item.sinopsis</td>
+                        <td>@item.nPaginas</td>
+                        <td>
+                            <a asp-action="LibroUp" asp-controller="Home" class="btn btn-primary btn-sm" asp-route-Id="@item.Id">Editar</a>
+                        </td>
+                        <td>
+                        </td>
+                    </tr>
+                }
+                <a asp-action="LibroList" asp-controller="Home" class="btn btn-warning btn-sm">Refrescar</a>
+                &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                <a asp-action="AutorList" asp-controller="Home" class="btn btn-warning btn-sm">Autores</a>
+                &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                <a asp-action="EditorialList" asp-controller="Home" class="btn btn-warning btn-sm">Editoriales</a>
+            </tbody>
+        </table>
+    </div>
+
+</div>

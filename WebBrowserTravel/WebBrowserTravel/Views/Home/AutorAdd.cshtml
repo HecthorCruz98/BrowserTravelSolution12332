@@ -1,0 +1,33 @@
+﻿@model Autor
+@{
+    ViewData["Title"] = " Agregar Nuevo Autor";
+}
+<div class="card">
+    <div class="card-header">
+        @ViewBag.Accion
+    </div>
+    <div class="card-body">
+
+        <form asp-action="AddAutor" asp-controller="Home" method="post">
+
+            <div class="mb-2">
+                <label class="form-label">Id</label>
+                <input type="number" class="form-control form-control-sm" asp-for="Id" readonly="readonly" />
+            </div>
+            <div class="mb-2">
+                <label class="form-label">Nombre</label>
+                <input type="text" class="form-control form-control-sm" asp-for="Nombre" />
+            </div>
+            <div class="mb-2">
+                <label class="form-label">Apellido</label>
+                <input type="text" class="form-control form-control-sm" asp-for="Apellido" />
+            </div>
+
+            <button type="submit" class="btn btn-success btn-sm">Guardar</button>
+
+            <a asp-action="AutorList" asp-controller="Home" class="btn btn-warning btn-sm">Volver a lista</a>
+        </form>
+
+    </div>
+
+</div>
